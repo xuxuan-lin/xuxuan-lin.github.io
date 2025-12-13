@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="学术个人主页" data-en="Academic Homepage">学术个人主页</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Serif:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 语言切换按钮 -->
+        <div class="language-switcher">
+            <button class="lang-btn active" id="langEn" onclick="switchLanguage('en')">
+                <i class="fas fa-language"></i> English
+            </button>
+            <button class="lang-btn" id="langZh" onclick="switchLanguage('zh')">
+                <i class="fas fa-language"></i> 中文
+            </button>
+        </div>
+
+        <!-- 头部信息区域 -->
+        <header class="header">
+            <div class="profile-section">
+                <div class="photo-container">
+                    <img src="first.png" alt="个人照片" class="profile-photo" id="profilePhoto">
+                    <div class="photo-placeholder" id="photoPlaceholder">
+                        <i class="fas fa-user"></i>
+                    </div>
+                </div>
+                <div class="basic-info">
+                    <h1 class="name" id="name" data-zh="林旭煊" data-en="Xuxuan Lin (林旭煊)">Xuxuan Lin</h1>
+                    <div class="info-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span id="school" data-zh="清华大学" data-en="Tsinghua University">Tsinghua University</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar"></i>
+                        <span id="grade" data-zh="本科 2022 级（二字班）" data-en="Senior Undergraduate">Senior
+                            Undergraduate</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-book"></i>
+                        <span id="major" data-zh="电子信息科学与技术"
+                            data-en="Electronic Information Science and Technology">Electronic Information Science and
+                            Technology</span>
+                    </div>
+                    <div class="social-links" id="socialLinks">
+                        <a href="linxx22@mails.tsinghua.edu.cn" class="social-link" data-title-zh="邮箱"
+                            data-title-en="Email" title="邮箱">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="#" class="social-link" data-title-zh="Google Scholar" data-title-en="Google Scholar"
+                            title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主要内容区域 -->
+        <main class="main-content">
+            <!-- 研究基本情况 -->
+            <section class="section" id="researchOverview">
+                <h2 class="section-title" data-zh="关于我" data-en="About Me">
+                    <i class="fas fa-microscope"></i>
+                    <span>研究基本情况</span>
+                </h2>
+                <div class="section-content">
+                    <p id="researchText"
+                        data-zh="<p style='margin-bottom: 10px; text-align: justify; text-justify: inter-ideograph'>你好，欢迎来到我的主页！我叫<strong>林旭煊</strong>，目前是清华大学电子工程系电子信息科学与技术专业的大四学生，本科阶段的 GPA 为 <strong>3.91/4.00</strong>。我系统学习了数学与物理基础、电磁场与电磁波、微波技术与射频电路、通信原理等课程，逐步打下了扎实的理论根基，并形成了较好的工程直觉。</p><p style='margin-bottom: 10px; text-align: justify; text-justify: inter-ideograph'>我的主要研究兴趣集中在<strong>电磁与射频理论</strong>、<strong>天线理论</strong>及其在无线通信中的应用，尤其关注受限平台上的高效辐射机理、电小天线，以及宽带 / 双极化天线的设计。未来，我希望在更系统的理论框架下理解复杂电磁结构的本质规律，并将这些规律转化为可工程实现的天线与射频前端方案，为新一代无线通信与感知系统提供支撑。</p><p style='text-align: justify; text-justify: inter-ideograph'>自 2023 年 11 月起，我加入清华大学<strong><a href='https://oa.ee.tsinghua.edu.cn/~liyue/index.html' target='_blank' style='text-decoration: none;'>李越副教授</a></strong>的课题组开展相关研究，并将继续留在课题组攻读博士学位。</p>"
+                        data-en="<p style='margin-bottom: 10px; text-align: justify'>Hi, welcome to my homepage! My name is <strong>Xuxuan Lin</strong>. I am currently a senior undergraduate student in the Department of Electronic Engineering at Tsinghua University, majoring in Electronic Information Science and Technology. My undergraduate GPA is <strong>3.91/4.00</strong>.</p><p style='margin-bottom: 10px; text-align: justify'>Through coursework in mathematics and physics, electromagnetics, microwave technology and RF circuits, and communication theory, I have built a solid theoretical foundation and developed a good sense of engineering intuition.</p><p style='margin-bottom: 10px; text-align: justify'>My primary research interests lie in <strong>electromagnetic and RF theory</strong>, <strong>antenna theory</strong>, and their applications in wireless communications. In particular, I am interested in efficient radiation mechanisms on constrained platforms, electrically small antennas, and broadband / dual-polarized antenna designs. Looking ahead, I hope to understand the fundamental behavior of complex electromagnetic structures within a more systematic theoretical framework, and translate that understanding into practical antenna and RF front-end solutions for next-generation wireless communication and sensing systems.</p><p style='text-align: justify'>Since November 2023, I have been a member of <strong><a href='https://oa.ee.tsinghua.edu.cn/~liyue/index.html' target='_blank' style='text-decoration: none;'>Assoc. Prof. Yue Li</a></strong>'s research group at Tsinghua University, and I will continue my Ph.D. studies in the same group.</p>">
+                        在这里填写您的研究方向、研究兴趣和主要研究内容...</p>
+                </div>
+            </section>
+
+            <!-- News -->
+            <section class="section" id="news">
+                <h2 class="section-title" data-zh="最新动态" data-en="News">
+                    <i class="fas fa-newspaper"></i>
+                    <span>最新动态</span>
+                </h2>
+                <div class="section-content">
+                    <ul class="news-list" id="newsList">
+                        <li class="news-item">
+                            <span class="news-date">2024-01-15</span>
+                            <span class="news-content" data-zh="在这里添加您的新闻动态..."
+                                data-en="Add your news here...">在这里添加您的新闻动态...</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 研究项目/论文 -->
+            <section class="section" id="publications">
+                <h2 class="section-title" data-zh="研究项目与论文" data-en="Publications">
+                    <i class="fas fa-file-alt"></i>
+                    <span>研究项目与论文</span>
+                </h2>
+                <div class="section-content">
+                    <div class="publications-list" id="publicationsList">
+                        <div class="publication-item">
+                            <div class="publication-image-container">
+                                <a href="#" class="publication-image-link">
+                                    <img src="publications/example.jpg" alt="论文图片" class="publication-image"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                    <div class="publication-image-placeholder" style="display: none;">
+                                        <i class="fas fa-image"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="publication-content">
+                                <div class="publication-title" data-zh="论文标题示例" data-en="Example Paper Title">论文标题示例
+                                </div>
+                                <div class="publication-authors" data-zh="作者1, 作者2, 您的姓名"
+                                    data-en="Author1, Author2, Your Name">作者1, 作者2, 您的姓名</div>
+                                <div class="publication-venue" data-zh="会议/期刊名称, 年份"
+                                    data-en="Conference/Journal Name, Year">会议/期刊名称, 年份</div>
+                                <div class="publication-links">
+                                    <a href="#" class="pub-link"><i class="fas fa-file-pdf"></i> <span data-zh="PDF"
+                                            data-en="PDF">PDF</span></a>
+                                    <a href="#" class="pub-link"><i class="fas fa-link"></i> <span data-zh="Link"
+                                            data-en="Link">Link</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 获奖情况 -->
+            <section class="section" id="awards">
+                <h2 class="section-title" data-zh="获奖情况" data-en="Awards">
+                    <i class="fas fa-trophy"></i>
+                    <span>获奖情况</span>
+                </h2>
+                <div class="section-content">
+                    <ul class="awards-list" id="awardsList">
+                        <li class="award-item">
+                            <i class="fas fa-medal"></i>
+                            <div class="award-content">
+                                <div class="award-title" data-zh="奖项名称" data-en="Award Name">奖项名称</div>
+                                <div class="award-date" data-zh="年份" data-en="Year">年份</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 社会任职 -->
+            <section class="section" id="services">
+                <h2 class="section-title" data-zh="社会任职" data-en="Services">
+                    <i class="fas fa-users"></i>
+                    <span>社会任职</span>
+                </h2>
+                <div class="section-content">
+                    <ul class="services-list" id="servicesList">
+                        <li class="service-item">
+                            <i class="fas fa-briefcase"></i>
+                            <div class="service-content">
+                                <div class="service-title" data-zh="职位名称" data-en="Position Title">职位名称</div>
+                                <div class="service-org" data-zh="组织/机构名称" data-en="Organization Name">组织/机构名称</div>
+                                <div class="service-period" data-zh="时间段" data-en="Period">时间段</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- 页脚 -->
+        <footer class="footer">
+            <p>&copy; <span id="currentYear"></span> <span data-zh="版权所有" data-en="All Rights Reserved">版权所有</span></p>
+        </footer>
+    </div>
+
+    <script src="content.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
