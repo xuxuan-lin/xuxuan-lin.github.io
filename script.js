@@ -34,8 +34,13 @@ function switchLanguage(lang) {
         const content = lang === 'zh' ? element.getAttribute('data-zh') : element.getAttribute('data-en');
         if (element.tagName === 'TITLE') {
             document.title = content;
-        } else if (element.id === 'researchText' || element.classList.contains('research-content') || element.classList.contains('publication-authors')) {
-            // researchText和publication-authors支持HTML内容
+        } else if (
+            element.id === 'researchText' ||
+            element.classList.contains('research-content') ||
+            element.classList.contains('publication-authors') ||
+            element.classList.contains('news-content')
+        ) {
+            // 这些区域支持HTML内容（例如包含链接、加粗等）
             element.innerHTML = content;
         } else {
             element.textContent = content;
@@ -170,7 +175,7 @@ function loadContent() {
             dateSpan.textContent = news.date;
             const contentSpan = document.createElement('span');
             contentSpan.className = 'news-content';
-            contentSpan.textContent = news.content[lang];
+            contentSpan.innerHTML = news.content[lang];
             contentSpan.setAttribute('data-zh', news.content.zh);
             contentSpan.setAttribute('data-en', news.content.en);
             li.appendChild(dateSpan);
@@ -515,7 +520,7 @@ function loadExampleData() {
         li.className = 'news-item';
         const contentSpan = document.createElement('span');
         contentSpan.className = 'news-content';
-        contentSpan.textContent = news.content[lang];
+        contentSpan.innerHTML = news.content[lang];
         contentSpan.setAttribute('data-zh', news.content.zh);
         contentSpan.setAttribute('data-en', news.content.en);
         li.innerHTML = `<span class="news-date">${news.date}</span>`;
