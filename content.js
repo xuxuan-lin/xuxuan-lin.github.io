@@ -88,9 +88,16 @@ const siteContent = {
             date: "2025-04-21",
             content: {
                 zh: "🏆 我们的项目《面向路由器应用的宽带全向双极化天线设计》荣获清华大学“挑战杯”特等奖！",
-                en: "🏆 Our project, “Broadband Omnidirectional Dual-Polarized Antenna Design for Router Applications,” received the Grand Prize (Special Award) in Tsinghua University’s “Challenge Cup” competition."
+                en: "🏆 Our project, “Broadband Omnidirectional Dual-Polarized Antenna Design for Router Applications,” received the <strong>Grand Prize (Special Award)</strong> in Tsinghua University’s “Challenge Cup” competition."
             }
-        }
+        },
+        {
+            date: "2025-05-28",
+            content: {
+                zh: "🏆 我们的项目《面向路由器应用的宽带全向双极化天线设计》荣获首都“挑战杯”主体赛特等奖！",
+                en: "🏆 Our project, “Broadband Omnidirectional Dual-Polarized Antenna Design for Router Applications,” received the <strong>Grand Prize (Special Award)</strong> in the Capital “Challenge Cup” Main Competition."
+            }
+        },
     ],
 
     // 研究项目与论文
