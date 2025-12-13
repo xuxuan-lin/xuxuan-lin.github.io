@@ -85,17 +85,24 @@ const siteContent = {
     // 最新动态
     news: [
         {
+            date: "2025-11-03",
+            content: {
+                zh: "🏆 我负责的项目最终夺得第十九届全国“挑战杯”中主体赛<strong>特等奖</strong>，助力清华大学再次捧起象征团体冠军的“挑战杯”！[<a href=\"https://www.tsinghua.edu.cn/info/1176/122277.htm\" target=\"_blank\">清华新闻</a>] [<a href=\"https://www.ee.tsinghua.edu.cn/info/1076/4927.htm\" target=\"_blank\">清华电子系新闻</a>]",
+                en: "🏆 The project ultimately won the <strong>Grand Prize</strong> in the main competition of the 19th National \"Challenge Cup,\" helping Tsinghua University once again lift the <strong>\"Challenge Cup,\"</strong> symbolizing the team championship! [<a href=\"https://www.tsinghua.edu.cn/info/1176/122277.htm\" target=\"_blank\">Tsinghua News</a>] [<a href=\"https://www.ee.tsinghua.edu.cn/info/1076/4927.htm\" target=\"_blank\">EE News</a>]"
+            }
+        },
+        {
             date: "2025-05-28",
             content: {
-                zh: "🏆 我们的项目《面向路由器应用的宽带全向双极化天线设计》荣获首都“挑战杯”主体赛<strong>特等奖</strong>！",
-                en: "🏆 Our project, <em>\"Broadband Omnidirectional Dual-Polarized Antenna Design for Router Applications,\"</em> received the <strong>Grand Prize (Special Award)</strong> in the Capital \"Challenge Cup\" Main Competition."
+                zh: "🏆 我负责的项目进一步荣获首都“挑战杯”主体赛<strong>特等奖</strong>！[<a href=\"https://www.tsinghua.edu.cn/info/1660/119339.htm\" target=\"_blank\">清华新闻</a>]",
+                en: "🏆 Our project further won the <strong>Grand Prize</strong> in the Capital \"Challenge Cup\" Main Competition! [<a href=\"https://www.tsinghua.edu.cn/info/1660/119339.htm\" target=\"_blank\">Tsinghua News</a>]"
             }
         },
         {
             date: "2025-04-21",
             content: {
-                zh: "🏆 我们的项目《面向路由器应用的宽带全向双极化天线设计》荣获清华大学“挑战杯”</strong>特等奖</strong>！",
-                en: "🏆 Our project, <em>\"Broadband Omnidirectional Dual-Polarized Antenna Design for Router Applications,\"</em> received the <strong>Grand Prize (Special Award)</strong> in Tsinghua University's \"Challenge Cup\" competition."
+               zh: "🏆 我负责的项目《面向路由器应用的宽带全向双极化天线设计》在清华大学第 43 届“挑战杯”中荣获信息技术赛道的唯一特等奖！",
+                en: "🏆 The project I led, <em>\"Broadband Omnidirectional Dual-Polarized Antenna Design for Router Applications,\"</em> won the <strong>Grand Prize</strong> at the 43rd \"Challenge Cup\" Technological Innovation Competition of Tsinghua University. <strong>This is the only Grand Prize in the field of information technology.</strong> "
             }
         },
     ],
@@ -123,7 +130,7 @@ const siteContent = {
     },
     {
         image: "files/IMG/APS_2025.png",
-        imageLink: "#",
+        imageLink: "https://doi.org/10.1109/AP-S/CNC-USNC-URSI55537.2025.11266541",
         title: {
             zh: "Broadband Omnidirectional Dual-Polarized Antenna using Multimode Coupling in Wi-Fi 6 Routers",
             en: "Broadband Omnidirectional Dual-Polarized Antenna using Multimode Coupling in Wi-Fi 6 Routers"

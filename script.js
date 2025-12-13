@@ -55,6 +55,108 @@ function switchLanguage(lang) {
     });
 }
 
+// 在 Publications 中插入“彩蛋”论文：通过小按钮切换显示/隐藏
+function injectEasterEggPublication(lang) {
+    const publicationsSection = document.getElementById('publications');
+    const publicationsList = document.getElementById('publicationsList');
+    if (!publicationsSection || !publicationsList) return;
+
+    const sectionContent = publicationsSection.querySelector('.section-content');
+    if (!sectionContent) return;
+
+    // 可选：如果 content.js 里提供了 siteContent.easterEggPublication，则优先使用
+    const defaultEgg = {
+        title: {
+            zh: '基于谷歌街景的印度语言景观调查研究',
+            en: 'An Investigation of the Linguistic Landscape of Indian Multilingualism Based on Google Street View'
+        },
+        authors: {
+            zh: '苏婧, <strong>林旭煊</strong>',
+            en: 'SU Jing, <strong>LIN Xuxuan</strong>'
+        },
+        venue: {
+            zh: '《南亚学》第 4 辑, 商务印书馆, 2024 年',
+            en: 'South Asia Studies, Vol. 4, The Commercial Press, 2024'
+        },
+        links: {
+            link: 'https://kns.cnki.net/kcms2/article/abstract?v=z8lpvlhA63EVVCfLSJTps-ZH4sbNUTeIlXovdFZslCvGzFsYqPyHfBa9GO5jMMA-8gctkApmfJWLa1-1Bmtp6jBY7_4UYPfmakwaIziUEaDrG9qTiEco9D_XXXWY0Gt8fXc4QqQZ7jufBIJ6KE98vEsz11AZYHIcElo8LgrKOp_3--EkBTlxPg==&uniplatform=NZKPT&language=CHS'
+        }
+    };
+
+    const eggData = (typeof siteContent !== 'undefined' && siteContent.easterEggPublication)
+        ? siteContent.easterEggPublication
+        : defaultEgg;
+
+    // 1) 小按钮（避免重复插入）
+    let toggleBtn = document.getElementById('easterEggToggle');
+    if (!toggleBtn) {
+        toggleBtn = document.createElement('button');
+        toggleBtn.id = 'easterEggToggle';
+        toggleBtn.type = 'button';
+        toggleBtn.className = 'easter-egg-toggle';
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('data-zh', '🤔 一篇“不务正业”的论文');
+        toggleBtn.setAttribute('data-en', '🤔 A \"side hustle\" Paper');
+
+        // 放在 publicationsList 之后（整个 Publications 区域最下面）
+        sectionContent.insertBefore(toggleBtn, publicationsList.nextSibling);
+
+        toggleBtn.addEventListener('click', () => {
+            const egg = document.getElementById('easterEggPublication');
+            if (!egg) return;
+            const hidden = egg.style.display === 'none' || egg.style.display === '';
+            egg.style.display = hidden ? 'flex' : 'none';
+            toggleBtn.setAttribute('aria-expanded', hidden ? 'true' : 'false');
+        });
+    }
+
+    // 确保按钮始终位于 publicationsList 之后（列表重建后也保持在最下面）
+    if (toggleBtn.parentElement === sectionContent && publicationsList.nextSibling !== toggleBtn) {
+        sectionContent.insertBefore(toggleBtn, publicationsList.nextSibling);
+    }
+
+    // 让按钮文案与当前语言一致（同时也方便首次 loadContent 之后立即正确显示）
+    toggleBtn.textContent = lang === 'zh' ? toggleBtn.getAttribute('data-zh') : toggleBtn.getAttribute('data-en');
+
+    // 2) “彩蛋”论文条目（每次 publicationsList 被重建后都能重新注入）
+    let eggItem = document.getElementById('easterEggPublication');
+    if (!eggItem) {
+        eggItem = document.createElement('div');
+        eggItem.id = 'easterEggPublication';
+        eggItem.className = 'publication-item easter-egg-publication';
+        eggItem.style.display = 'none';
+
+        const titleZh = eggData.title?.zh ?? defaultEgg.title.zh;
+        const titleEn = eggData.title?.en ?? defaultEgg.title.en;
+        const authorsZh = eggData.authors?.zh ?? defaultEgg.authors.zh;
+        const authorsEn = eggData.authors?.en ?? defaultEgg.authors.en;
+        const venueZh = eggData.venue?.zh ?? defaultEgg.venue.zh;
+        const venueEn = eggData.venue?.en ?? defaultEgg.venue.en;
+        const link = eggData.links?.link ?? defaultEgg.links.link;
+
+        eggItem.innerHTML = `
+            <div class="publication-content">
+                <div class="publication-title" data-zh="${titleZh}" data-en="${titleEn}">${lang === 'zh' ? titleZh : titleEn}</div>
+                <div class="publication-authors" data-zh="${authorsZh}" data-en="${authorsEn}">${lang === 'zh' ? authorsZh : authorsEn}</div>
+                <div class="publication-venue" data-zh="${venueZh}" data-en="${venueEn}">${lang === 'zh' ? venueZh : venueEn}</div>
+                <div class="publication-links">
+                    <a href="${link}" class="pub-link" target="_blank" rel="noopener">
+                        <i class="fas fa-link"></i>
+                        <span data-zh="Link" data-en="Link">Link</span>
+                    </a>
+                </div>
+            </div>
+        `;
+
+        publicationsList.appendChild(eggItem);
+    } else {
+        // 如果已存在但不在列表里，确保挂回去
+        if (eggItem.parentElement !== publicationsList) {
+            publicationsList.appendChild(eggItem);
+        }
+    }
+}
+
 // 从content.js加载内容并应用到页面
 function loadContent() {
     if (typeof siteContent === 'undefined') {
@@ -256,6 +358,7 @@ function loadContent() {
             div.appendChild(contentDiv);
             publicationsList.appendChild(div);
         });
+        injectEasterEggPublication(lang);
     }
 
     // 加载获奖情况
@@ -600,6 +703,7 @@ function loadExampleData() {
         div.appendChild(contentDiv);
         publicationsList.appendChild(div);
     });
+    injectEasterEggPublication(lang);
     
     // 加载获奖情况
     const awardsList = document.getElementById('awardsList');
