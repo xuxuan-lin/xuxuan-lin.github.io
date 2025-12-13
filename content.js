@@ -91,14 +91,6 @@ const siteContent = {
                 en: "Add your news here..."
             }
         }
-        // 添加更多新闻项：
-        // {
-        //     date: "2024-01-10",
-        //     content: {
-        //         zh: "新闻内容（中文）",
-        //         en: "News content (English)"
-        //     }
-        // }
     ],
 
     // 研究项目与论文
@@ -139,7 +131,7 @@ const siteContent = {
         },
         links: {
             pdf: "files/PDF/APS_2025_LXX.pdf",
-            link: "#"
+            link: "https://doi.org/10.1109/AP-S/CNC-USNC-URSI55537.2025.11266541"
         }
     }
 
@@ -169,7 +161,7 @@ const siteContent = {
 
     // 获奖情况
     awards: [
-        {
+       /* {
             title: {
                 zh: "奖项名称",
                 en: "Award Name"
@@ -178,7 +170,7 @@ const siteContent = {
                 zh: "年份",
                 en: "Year"
             }
-        }
+        }*/
         // 添加更多奖项：
         // {
         //     title: {
@@ -194,7 +186,7 @@ const siteContent = {
 
     // 社会任职
     services: [
-        {
+       /* {
             title: {
                 zh: "职位名称",
                 en: "Position Title"
@@ -207,7 +199,7 @@ const siteContent = {
                 zh: "时间段",
                 en: "Period"
             }
-        }
+        }*/
         // 添加更多任职：
         // {
         //     title: {
