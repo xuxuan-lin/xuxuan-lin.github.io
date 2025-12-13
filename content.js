@@ -85,10 +85,10 @@ const siteContent = {
     // 最新动态
     news: [
         {
-            date: "2024-01-15",
+            date: "2025-04-21",
             content: {
-                zh: "在这里添加您的新闻动态...",
-                en: "Add your news here..."
+                zh: "🏆 我们的项目《面向路由器应用的宽带全向双极化天线设计》荣获清华大学“挑战杯”特等奖！",
+                en: "🏆 Our project, “Broadband Omnidirectional Dual-Polarized Antenna Design for Router Applications,” received the Grand Prize (Special Award) in Tsinghua University’s “Challenge Cup” competition."
             }
         }
     ],
