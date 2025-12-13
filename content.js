@@ -4,8 +4,8 @@
 const siteContent = {
     // 页面标题
     title: {
-        zh: "学术个人主页",
-        en: "Academic Homepage"
+        zh: "林旭煊的学术主页",
+        en: "Xuxuan Lin's Homepage"
     },
 
     // 基本信息
