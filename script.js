@@ -440,11 +440,24 @@ function loadContent() {
             const contentDiv = document.createElement('div');
             contentDiv.className = 'publication-content';
 
+            const headerDiv = document.createElement('div');
+            headerDiv.className = 'publication-header';
+
+            if (pub.badge && (pub.badge[lang] || pub.badge.zh || pub.badge.en)) {
+                const badgeSpan = document.createElement('span');
+                badgeSpan.className = 'publication-badge';
+                badgeSpan.textContent = pub.badge[lang] || pub.badge.zh || pub.badge.en;
+                if (pub.badge.zh) badgeSpan.setAttribute('data-zh', pub.badge.zh);
+                if (pub.badge.en) badgeSpan.setAttribute('data-en', pub.badge.en);
+                headerDiv.appendChild(badgeSpan);
+            }
+
             const titleDiv = document.createElement('div');
             titleDiv.className = 'publication-title';
             titleDiv.textContent = pub.title[lang];
             titleDiv.setAttribute('data-zh', pub.title.zh);
             titleDiv.setAttribute('data-en', pub.title.en);
+            headerDiv.appendChild(titleDiv);
 
             const authorsDiv = document.createElement('div');
             authorsDiv.className = 'publication-authors';
@@ -465,7 +478,7 @@ function loadContent() {
                 <a href="${pub.links.link}" class="pub-link"><i class="fas fa-link"></i> <span data-zh="Link" data-en="Link">Link</span></a>
             `;
 
-            contentDiv.appendChild(titleDiv);
+            contentDiv.appendChild(headerDiv);
             contentDiv.appendChild(authorsDiv);
             contentDiv.appendChild(venueDiv);
             contentDiv.appendChild(linksDiv);

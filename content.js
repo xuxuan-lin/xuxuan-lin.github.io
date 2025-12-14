@@ -149,6 +149,10 @@ const siteContent = {
     {
         image: "files/IMG/APS_2025.png",
         imageLink: "https://doi.org/10.1109/AP-S/CNC-USNC-URSI55537.2025.11266541",
+        badge: {
+            zh: "🥇 Honorable Mention",
+            en: "🥇 Honorable Mention"
+        },
         title: {
             zh: "Broadband Omnidirectional Dual-Polarized Antenna using Multimode Coupling in Wi-Fi 6 Routers",
             en: "Broadband Omnidirectional Dual-Polarized Antenna using Multimode Coupling in Wi-Fi 6 Routers"
