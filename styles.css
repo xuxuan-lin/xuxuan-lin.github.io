@@ -416,9 +416,7 @@ body {
 }
 
 .publication-header {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: block;
     margin-bottom: 4px;
 }
 
@@ -434,9 +432,11 @@ body {
     border: 1px solid #fcd34d;
     border-radius: 999px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    margin-right: 8px;
 }
 
 .publication-title {
+    display: inline;
     font-size: 1em;
     font-weight: 600;
     color: var(--primary-color);
