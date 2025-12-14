@@ -454,28 +454,26 @@ body {
     content: "";
 }
 
-.more-link-container {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 12px;
-}
-
 .more-link {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 8px 14px;
-    border-radius: 8px;
-    background: var(--primary-color);
-    color: white;
+    margin-left: auto;
+    padding: 4px 10px;
+    border-radius: 999px;
+    border: 1px solid var(--secondary-color);
+    background: transparent;
+    color: var(--primary-color);
     font-weight: 600;
+    font-size: 0.9em;
     text-decoration: none;
-    transition: transform 0.1s ease, box-shadow 0.2s ease;
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .more-link:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 8px 24px rgba(16, 93, 255, 0.2);
+    background: var(--secondary-color);
+    color: white;
+    border-color: var(--secondary-color);
 }
 
 .simple-header {

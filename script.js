@@ -229,8 +229,8 @@ function removeElementById(id) {
     }
 }
 
-function renderMoreLink(container, id, href, lang, textConfig) {
-    if (!container) return;
+function renderMoreLink(sectionTitle, id, href, lang, textConfig) {
+    if (!sectionTitle) return;
     removeElementById(id);
 
     const link = document.createElement('a');
@@ -241,11 +241,7 @@ function renderMoreLink(container, id, href, lang, textConfig) {
     link.setAttribute('data-en', textConfig.en);
     link.textContent = lang === 'zh' ? textConfig.zh : textConfig.en;
 
-    const wrapper = document.createElement('div');
-    wrapper.className = 'more-link-container';
-    wrapper.appendChild(link);
-
-    container.appendChild(wrapper);
+    sectionTitle.appendChild(link);
 }
 
 // 从content.js加载内容并应用到页面
@@ -346,12 +342,13 @@ function loadContent() {
     }
 
     // 加载新闻
+    const newsSection = document.getElementById('news');
+    const newsTitle = newsSection?.querySelector('.section-title');
     const newsList = document.getElementById('newsList');
     if (newsList && siteContent.news) {
         newsList.innerHTML = '';
         const newsItems = Array.isArray(siteContent.news) ? siteContent.news : [];
         const limit = document.body.dataset.newsView === 'full' ? Infinity : NEWS_PREVIEW_LIMIT;
-        const sectionContent = newsList.closest('.section-content');
         removeElementById('newsMoreLink');
 
         newsItems.slice(0, limit).forEach(news => {
@@ -370,8 +367,8 @@ function loadContent() {
             newsList.appendChild(li);
         });
 
-        if (sectionContent && newsItems.length > limit) {
-            renderMoreLink(sectionContent, 'newsMoreLink', 'news.html', lang, {
+        if (newsTitle && newsItems.length > limit) {
+            renderMoreLink(newsTitle, 'newsMoreLink', 'news.html', lang, {
                 zh: '更多',
                 en: 'More'
             });
@@ -379,12 +376,13 @@ function loadContent() {
     }
 
     // 加载论文
+    const publicationsSection = document.getElementById('publications');
+    const publicationsTitle = publicationsSection?.querySelector('.section-title');
     const publicationsList = document.getElementById('publicationsList');
     if (publicationsList && siteContent.publications) {
         publicationsList.innerHTML = '';
         const publicationItems = Array.isArray(siteContent.publications) ? siteContent.publications : [];
         const limit = document.body.dataset.publicationsView === 'full' ? Infinity : PUBLICATIONS_PREVIEW_LIMIT;
-        const sectionContent = publicationsList.closest('.section-content');
         removeElementById('publicationsMoreLink');
 
         publicationItems.slice(0, limit).forEach(pub => {
@@ -457,8 +455,8 @@ function loadContent() {
         });
         injectEasterEggPublication(lang);
 
-        if (sectionContent && publicationItems.length > limit) {
-            renderMoreLink(sectionContent, 'publicationsMoreLink', 'publications.html', lang, {
+        if (publicationsTitle && publicationItems.length > limit) {
+            renderMoreLink(publicationsTitle, 'publicationsMoreLink', 'publications.html', lang, {
                 zh: '更多',
                 en: 'More'
             });
