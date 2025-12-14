@@ -96,10 +96,18 @@ const siteContent = {
         {
             date: "2025-04-21",
             content: {
-               zh: "🏆 我负责的项目《面向路由器应用的宽带全向双极化天线设计》在清华大学第 43 届“挑战杯”中荣获信息技术赛道的唯一特等奖！",
+                zh: "🏆 我负责的项目《面向路由器应用的宽带全向双极化天线设计》在清华大学第 43 届“挑战杯”中荣获信息技术赛道的唯一特等奖！",
                 en: "🏆 The project I led, <em>\"Broadband Omnidirectional Dual-Polarized Antenna Design for Router Applications,\"</em> won the <strong>Grand Prize</strong> at the 43rd \"Challenge Cup\" Technological Innovation Competition of Tsinghua University. <strong>This is the only Grand Prize in the field of information technology.</strong> "
             }
         },
+        {
+            date: "2025-03-06",
+            content: {
+                zh: "🎉 我的第一篇学术论文被 IEEE AP-S 2025 正式接收！",
+                en: "🎉 My first academic paper has been officially accepted by <strong>IEEE AP-S 2025</strong>!"
+            }
+        },
+
     ],
 
     // 研究项目与论文
@@ -170,16 +178,16 @@ const siteContent = {
 
     // 获奖情况
     awards: [
-       /* {
-            title: {
-                zh: "奖项名称",
-                en: "Award Name"
-            },
-            date: {
-                zh: "年份",
-                en: "Year"
-            }
-        }*/
+        /* {
+             title: {
+                 zh: "奖项名称",
+                 en: "Award Name"
+             },
+             date: {
+                 zh: "年份",
+                 en: "Year"
+             }
+         }*/
         // 添加更多奖项：
         // {
         //     title: {
@@ -195,20 +203,20 @@ const siteContent = {
 
     // 社会任职
     services: [
-       /* {
-            title: {
-                zh: "职位名称",
-                en: "Position Title"
-            },
-            org: {
-                zh: "组织/机构名称",
-                en: "Organization Name"
-            },
-            period: {
-                zh: "时间段",
-                en: "Period"
-            }
-        }*/
+        /* {
+             title: {
+                 zh: "职位名称",
+                 en: "Position Title"
+             },
+             org: {
+                 zh: "组织/机构名称",
+                 en: "Organization Name"
+             },
+             period: {
+                 zh: "时间段",
+                 en: "Period"
+             }
+         }*/
         // 添加更多任职：
         // {
         //     title: {
