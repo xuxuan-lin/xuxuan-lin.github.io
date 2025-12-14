@@ -333,7 +333,6 @@ body {
 .publication-image-container {
     flex-shrink: 0;
     width: 200px;
-    height: 112.5px;
     aspect-ratio: 16 / 9;
 }
 
@@ -653,7 +652,7 @@ body {
     }
 
     .publication-image-container {
-        height: 120px;
+        height: auto;
     }
 }
 
