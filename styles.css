@@ -25,6 +25,25 @@ body {
     font-size: 15px;
 }
 
+.loading-overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    z-index: 2000;
+    transition: opacity 0.2s ease;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;

@@ -1,5 +1,17 @@
 // 语言切换功能
 let currentLanguage = localStorage.getItem('language') || 'zh';
+const setLoadingState = (isLoading) => {
+    const overlay = document.getElementById('loadingOverlay');
+    const container = document.querySelector('.container');
+
+    if (overlay) {
+        overlay.classList.toggle('hidden', !isLoading);
+    }
+
+    if (container) {
+        container.setAttribute('aria-busy', isLoading ? 'true' : 'false');
+    }
+};
 
 // 设置当前年份
 document.getElementById('currentYear').textContent = new Date().getFullYear();
@@ -441,10 +453,16 @@ function loadContent() {
 
 // 页面加载时应用保存的语言设置并加载内容
 document.addEventListener('DOMContentLoaded', function() {
-    // 先加载内容
-    loadContent();
-    // 然后应用语言设置
-    switchLanguage(currentLanguage);
+    setLoadingState(true);
+
+    try {
+        // 先加载内容
+        loadContent();
+        // 然后应用语言设置
+        switchLanguage(currentLanguage);
+    } finally {
+        setLoadingState(false);
+    }
 });
 
 // 检查照片是否存在
