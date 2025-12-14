@@ -15,6 +15,16 @@ const setLoadingState = (isLoading) => {
     }
 };
 
+function placeNewsLinksOnNewLine(contentElement) {
+    if (!contentElement) return;
+
+    const links = contentElement.querySelectorAll('.news-link');
+    links.forEach(link => {
+        const br = document.createElement('br');
+        contentElement.insertBefore(br, link);
+    });
+}
+
 // 设置当前年份
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
@@ -60,6 +70,9 @@ function switchLanguage(lang) {
         ) {
             // 这些区域支持HTML内容（例如包含链接、加粗等）
             element.innerHTML = content;
+            if (element.classList.contains('news-content')) {
+                placeNewsLinksOnNewLine(element);
+            }
         } else {
             element.textContent = content;
         }
@@ -365,6 +378,7 @@ function loadContent() {
             contentSpan.innerHTML = news.content[lang];
             contentSpan.setAttribute('data-zh', news.content.zh);
             contentSpan.setAttribute('data-en', news.content.en);
+            placeNewsLinksOnNewLine(contentSpan);
             li.appendChild(dateSpan);
             li.appendChild(contentSpan);
             newsList.appendChild(li);
@@ -751,6 +765,7 @@ function loadExampleData() {
         contentSpan.innerHTML = news.content[lang];
         contentSpan.setAttribute('data-zh', news.content.zh);
         contentSpan.setAttribute('data-en', news.content.en);
+        placeNewsLinksOnNewLine(contentSpan);
         li.innerHTML = `<span class="news-date">${news.date}</span>`;
         li.appendChild(contentSpan);
         newsList.appendChild(li);
