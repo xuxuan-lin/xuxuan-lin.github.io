@@ -105,7 +105,7 @@ function injectEasterEggPublication(lang) {
         },
         venue: {
             zh: '《南亚学》第 4 辑, 商务印书馆, 2024 年',
-            en: 'South Asia Studies, Vol. 4, The Commercial Press, 2024'
+            en: 'South Asian Review, Vol. 4, The Commercial Press, 2024'
         },
         links: {
             link: 'https://kns.cnki.net/kcms2/article/abstract?v=z8lpvlhA63EVVCfLSJTps-ZH4sbNUTeIlXovdFZslCvGzFsYqPyHfBa9GO5jMMA-8gctkApmfJWLa1-1Bmtp6jBY7_4UYPfmakwaIziUEaDrG9qTiEco9D_XXXWY0Gt8fXc4QqQZ7jufBIJ6KE98vEsz11AZYHIcElo8LgrKOp_3--EkBTlxPg==&uniplatform=NZKPT&language=CHS'
