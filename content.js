@@ -89,8 +89,8 @@ const siteContent = {
         {
             date: "2025-09-12",
             content: {
-                zh: "🎓 我获得国家自然科学基金青年学生基础研究项目（本科生）资助！",
-                en: "🎓 I received funding from the <strong>National Natural Science Foundation of China</strong> under the <strong>Young Students Basic Research Program (Undergraduate)</strong>!"
+                zh: "🎓 我获得<strong>国家自然科学基金</strong>青年学生基础研究项目（本科生）资助！",
+                en: "🎓 I have been awarded funding from the <strong>National Natural Science Foundation of China</strong> under the Young Student Basic Research Program (Undergraduate)!"
             }
         },
 
@@ -99,6 +99,13 @@ const siteContent = {
             content: {
                 zh: "🏆 我负责的项目进一步荣获首都“挑战杯”主体赛<strong>特等奖</strong>！ <a class=\"news-link\" href=\"https://www.tsinghua.edu.cn/info/1660/119339.htm\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>清华新闻</span></a>",
                 en: "🏆 Our project further won the <strong>Grand Prize</strong> in the Capital \"Challenge Cup\" Main Competition! <a class=\"news-link\" href=\"https://www.tsinghua.edu.cn/info/1660/119339.htm\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>Tsinghua News</span></a>"
+            }
+        },
+        {
+            date: "2025-04-30",
+            content: {
+                zh: "🏅 我提交至 2025 IEEE AP-S 学生论文竞赛的论文入选 <strong>Honorable Mention</strong>！",
+                en: "🏅 My paper submitted to the 2025 IEEE AP-S Student Paper Competition was selected as an <em>Honorable Mention</em>."
             }
         },
         {
