@@ -38,6 +38,7 @@ function switchLanguage(lang) {
     // 更新所有带有data-zh和data-en属性的元素
     const elements = document.querySelectorAll('[data-zh][data-en]');
     elements.forEach(element => {
+        if (element.id === 'easterEggToggle') return;
         // 跳过section-title（已经处理过了）和它的子元素
         if (element.classList.contains('section-title') || element.closest('.section-title')) {
             return;
@@ -65,6 +66,22 @@ function switchLanguage(lang) {
         const title = lang === 'zh' ? link.getAttribute('data-title-zh') : link.getAttribute('data-title-en');
         link.setAttribute('title', title);
     });
+    updateEasterEggToggleText(lang);
+}
+
+function updateEasterEggToggleText(lang) {
+    const toggleBtn = document.getElementById('easterEggToggle');
+    if (!toggleBtn) return;
+
+    const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+    const textZh = isExpanded
+        ? (toggleBtn.getAttribute('data-zh-hide') || toggleBtn.getAttribute('data-zh'))
+        : toggleBtn.getAttribute('data-zh');
+    const textEn = isExpanded
+        ? (toggleBtn.getAttribute('data-en-hide') || toggleBtn.getAttribute('data-en'))
+        : toggleBtn.getAttribute('data-en');
+
+    toggleBtn.textContent = lang === 'zh' ? textZh : textEn;
 }
 
 // 在 Publications 中插入“彩蛋”论文：通过小按钮切换显示/隐藏
@@ -109,6 +126,8 @@ function injectEasterEggPublication(lang) {
         toggleBtn.setAttribute('aria-expanded', 'false');
         toggleBtn.setAttribute('data-zh', '🤔 一篇“不务正业”的论文');
         toggleBtn.setAttribute('data-en', '🤔 A \"side hustle\" Paper');
+        toggleBtn.setAttribute('data-zh-hide', '🙈 隐藏');
+        toggleBtn.setAttribute('data-en-hide', '🙈 Hide');
 
         // 放在 publicationsList 之后（整个 Publications 区域最下面）
         sectionContent.insertBefore(toggleBtn, publicationsList.nextSibling);
@@ -119,6 +138,7 @@ function injectEasterEggPublication(lang) {
             const hidden = egg.style.display === 'none' || egg.style.display === '';
             egg.style.display = hidden ? 'flex' : 'none';
             toggleBtn.setAttribute('aria-expanded', hidden ? 'true' : 'false');
+            updateEasterEggToggleText(currentLanguage);
         });
     }
 
@@ -128,7 +148,7 @@ function injectEasterEggPublication(lang) {
     }
 
     // 让按钮文案与当前语言一致（同时也方便首次 loadContent 之后立即正确显示）
-    toggleBtn.textContent = lang === 'zh' ? toggleBtn.getAttribute('data-zh') : toggleBtn.getAttribute('data-en');
+    updateEasterEggToggleText(lang);
 
     // 2) “彩蛋”论文条目（每次 publicationsList 被重建后都能重新注入）
     let eggItem = document.getElementById('easterEggPublication');
