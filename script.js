@@ -169,6 +169,37 @@ function injectEasterEggPublication(lang) {
     }
 }
 
+function renderSocialLinks(links, lang) {
+    const container = document.getElementById('socialLinks');
+    if (!container) return;
+
+    container.innerHTML = '';
+    if (!Array.isArray(links)) return;
+
+    links.forEach(link => {
+        const anchor = document.createElement('a');
+        anchor.className = 'social-link';
+
+        if (link.url) {
+            anchor.href = link.url;
+        }
+
+        const titleZh = link.title?.zh || '';
+        const titleEn = link.title?.en || titleZh;
+        if (titleZh || titleEn) {
+            anchor.setAttribute('data-title-zh', titleZh);
+            anchor.setAttribute('data-title-en', titleEn);
+            anchor.setAttribute('title', lang === 'zh' ? titleZh : titleEn);
+        }
+
+        const icon = document.createElement('i');
+        icon.className = link.icon || 'fas fa-link';
+        anchor.appendChild(icon);
+
+        container.appendChild(anchor);
+    });
+}
+
 // 从content.js加载内容并应用到页面
 function loadContent() {
     if (typeof siteContent === 'undefined') {
@@ -215,18 +246,7 @@ function loadContent() {
         majorEl.setAttribute('data-en', siteContent.basicInfo.major.en);
     }
 
-    // 设置社交媒体链接标题
-    const socialLinks = document.querySelectorAll('.social-link');
-    if (socialLinks.length > 0 && siteContent.socialLinks.email) {
-        socialLinks[0].setAttribute('data-title-zh', siteContent.socialLinks.email.zh);
-        socialLinks[0].setAttribute('data-title-en', siteContent.socialLinks.email.en);
-        socialLinks[0].setAttribute('title', siteContent.socialLinks.email[lang]);
-    }
-    if (socialLinks.length > 1 && siteContent.socialLinks.scholar) {
-        socialLinks[1].setAttribute('data-title-zh', siteContent.socialLinks.scholar.zh);
-        socialLinks[1].setAttribute('data-title-en', siteContent.socialLinks.scholar.en);
-        socialLinks[1].setAttribute('title', siteContent.socialLinks.scholar[lang]);
-    }
+    renderSocialLinks(siteContent.socialLinks, lang);
 
     // 设置章节标题
     const aboutMeTitle = document.querySelector('#researchOverview .section-title');
@@ -505,13 +525,33 @@ const exampleData = {
         zh: "专业",
         en: "Major"
     },
-    socialLinks: {
-        email: "mailto:your.email@example.com",
-        github: "https://github.com/yourusername",
-        scholar: "https://scholar.google.com/citations?user=yourid",
-        linkedin: "https://www.linkedin.com/in/yourprofile",
-        twitter: "https://twitter.com/yourusername"
-    },
+    socialLinks: [
+        {
+            title: { zh: "邮箱", en: "Email" },
+            url: "mailto:your.email@example.com",
+            icon: "fas fa-envelope",
+        },
+        {
+            title: { zh: "GitHub", en: "GitHub" },
+            url: "https://github.com/yourusername",
+            icon: "fab fa-github",
+        },
+        {
+            title: { zh: "Google Scholar", en: "Google Scholar" },
+            url: "https://scholar.google.com/citations?user=yourid",
+            icon: "fas fa-graduation-cap",
+        },
+        {
+            title: { zh: "LinkedIn", en: "LinkedIn" },
+            url: "https://www.linkedin.com/in/yourprofile",
+            icon: "fab fa-linkedin",
+        },
+        {
+            title: { zh: "Twitter", en: "Twitter" },
+            url: "https://twitter.com/yourusername",
+            icon: "fab fa-twitter",
+        },
+    ],
     research: {
         zh: "在这里填写您的研究方向、研究兴趣和主要研究内容。可以包括您的研究领域、方法论、以及您感兴趣的具体问题。",
         en: "Fill in your research directions, research interests, and main research content here. You can include your research areas, methodologies, and specific questions you are interested in."
@@ -619,13 +659,7 @@ function loadExampleData() {
     majorEl.setAttribute('data-zh', exampleData.major.zh);
     majorEl.setAttribute('data-en', exampleData.major.en);
     
-    // 加载社交媒体链接
-    const socialLinks = document.querySelectorAll('.social-link');
-    socialLinks[0].href = exampleData.socialLinks.email;
-    socialLinks[1].href = exampleData.socialLinks.github;
-    socialLinks[2].href = exampleData.socialLinks.scholar;
-    socialLinks[3].href = exampleData.socialLinks.linkedin;
-    socialLinks[4].href = exampleData.socialLinks.twitter;
+    renderSocialLinks(exampleData.socialLinks, lang);
     
     // 加载研究内容（支持HTML）
     const researchEl = document.getElementById('researchText');

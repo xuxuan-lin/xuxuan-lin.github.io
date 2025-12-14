@@ -27,30 +27,25 @@ const siteContent = {
             en: "Electronic Information Science and Technology"
         }
     },
-
-    // 社交媒体链接标题
-    socialLinks: {
-        email: {
-            zh: "邮箱",
-            en: "Email"
+    // 社交媒体链接（可自由增删，支持中英文标题、链接和图标类名）
+    socialLinks: [
+        {
+            title: {
+                zh: "邮箱",
+                en: "Email",
+            },
+            url: "mailto:linxx22@mails.tsinghua.edu.cn",
+            icon: "fas fa-envelope",
         },
-        github: {
-            zh: "GitHub",
-            en: "GitHub"
+        {
+            title: {
+                zh: "ResearchGate",
+                en: "ResearchGate",
+            },
+            url: "https://www.researchgate.net/profile/Xuxuan-Lin",
+            icon: "fa-brands fa-researchgate",
         },
-        scholar: {
-            zh: "Google Scholar",
-            en: "Google Scholar"
-        },
-        linkedin: {
-            zh: "LinkedIn",
-            en: "LinkedIn"
-        },
-        twitter: {
-            zh: "Twitter",
-            en: "Twitter"
-        }
-    },
+    ],
 
     // 章节标题
     sectionTitles: {
