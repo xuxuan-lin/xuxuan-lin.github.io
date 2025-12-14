@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-zh="全部最新动态" data-en="All News">全部最新动态</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&family=Noto+Serif:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body data-news-view="full" data-publications-view="preview">
+    <div class="container">
+        <div class="language-switcher">
+            <button class="lang-btn active" id="langEn" onclick="switchLanguage('en')">
+                <i class="fas fa-language"></i> English
+            </button>
+            <button class="lang-btn" id="langZh" onclick="switchLanguage('zh')">
+                <i class="fas fa-language"></i> 中文
+            </button>
+        </div>
+
+        <header class="simple-header">
+            <a href="index.html" class="back-link" data-zh="返回首页" data-en="Back to Home">
+                <i class="fas fa-arrow-left"></i>
+                <span>返回首页</span>
+            </a>
+            <h1 class="page-title" data-zh="全部最新动态" data-en="All News">全部最新动态</h1>
+        </header>
+
+        <main class="main-content">
+            <section class="section" id="news">
+                <h2 class="section-title" data-zh="最新动态" data-en="News">
+                    <i class="fas fa-newspaper"></i>
+                    <span>最新动态</span>
+                </h2>
+                <div class="section-content">
+                    <ul class="news-list" id="newsList"></ul>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; <span id="currentYear"></span> <span data-zh="版权所有" data-en="All Rights Reserved">版权所有</span></p>
+        </footer>
+    </div>
+
+    <script src="content.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

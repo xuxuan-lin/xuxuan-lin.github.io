@@ -454,6 +454,59 @@ body {
     content: "";
 }
 
+.more-link-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+}
+
+.more-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.more-link:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(16, 93, 255, 0.2);
+}
+
+.simple-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.page-title {
+    font-size: 28px;
+    margin: 0;
+    color: var(--text-color);
+    font-weight: 700;
+}
+
 @media (max-width: 768px) {
     .easter-egg-toggle {
         width: 100%;
