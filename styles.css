@@ -288,7 +288,7 @@ body {
     border-bottom: 1px solid var(--border-color);
     display: flex;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .news-item:last-child {
@@ -307,6 +307,11 @@ body {
     flex: 1;
     color: var(--text-color);
     font-size: 0.95em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    line-height: 1.5;
 }
 
 .news-link {
