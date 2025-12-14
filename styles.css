@@ -313,9 +313,6 @@ body {
     text-justify: inter-ideograph;
 }
 
-.news-content strong {
-    white-space: nowrap;
-}
 
 .news-link {
     display: inline-flex;

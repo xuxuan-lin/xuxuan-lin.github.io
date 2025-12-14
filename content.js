@@ -105,7 +105,7 @@ const siteContent = {
             date: "2025-04-30",
             content: {
                 zh: "🏅 我提交至 2025 IEEE AP-S 学生论文竞赛的论文入选 <strong>Honorable Mention</strong>！",
-                en: "🏅 My paper submitted to the 2025 IEEE AP-S Student Paper Competition was selected as an <em>Honorable Mention</em>."
+                en: "🏅 My paper submitted to the 2025 IEEE AP-S Student Paper Competition was selected as an <strong>Honorable Mention</strong>."
             }
         },
         {
