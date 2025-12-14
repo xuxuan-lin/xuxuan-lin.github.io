@@ -1,5 +1,7 @@
 // 语言切换功能
 let currentLanguage = localStorage.getItem('language') || 'zh';
+const NEWS_PREVIEW_LIMIT = 5;
+const PUBLICATIONS_PREVIEW_LIMIT = 5;
 const setLoadingState = (isLoading) => {
     const overlay = document.getElementById('loadingOverlay');
     const container = document.querySelector('.container');
@@ -220,6 +222,32 @@ function renderSocialLinks(links, lang) {
     });
 }
 
+function removeElementById(id) {
+    const element = document.getElementById(id);
+    if (element) {
+        element.remove();
+    }
+}
+
+function renderMoreLink(container, id, href, lang, textConfig) {
+    if (!container) return;
+    removeElementById(id);
+
+    const link = document.createElement('a');
+    link.id = id;
+    link.className = 'more-link';
+    link.href = href;
+    link.setAttribute('data-zh', textConfig.zh);
+    link.setAttribute('data-en', textConfig.en);
+    link.textContent = lang === 'zh' ? textConfig.zh : textConfig.en;
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'more-link-container';
+    wrapper.appendChild(link);
+
+    container.appendChild(wrapper);
+}
+
 // 从content.js加载内容并应用到页面
 function loadContent() {
     if (typeof siteContent === 'undefined') {
@@ -321,7 +349,12 @@ function loadContent() {
     const newsList = document.getElementById('newsList');
     if (newsList && siteContent.news) {
         newsList.innerHTML = '';
-        siteContent.news.forEach(news => {
+        const newsItems = Array.isArray(siteContent.news) ? siteContent.news : [];
+        const limit = document.body.dataset.newsView === 'full' ? Infinity : NEWS_PREVIEW_LIMIT;
+        const sectionContent = newsList.closest('.section-content');
+        removeElementById('newsMoreLink');
+
+        newsItems.slice(0, limit).forEach(news => {
             const li = document.createElement('li');
             li.className = 'news-item';
             const dateSpan = document.createElement('span');
@@ -336,23 +369,35 @@ function loadContent() {
             li.appendChild(contentSpan);
             newsList.appendChild(li);
         });
+
+        if (sectionContent && newsItems.length > limit) {
+            renderMoreLink(sectionContent, 'newsMoreLink', 'news.html', lang, {
+                zh: '更多',
+                en: 'More'
+            });
+        }
     }
 
     // 加载论文
     const publicationsList = document.getElementById('publicationsList');
     if (publicationsList && siteContent.publications) {
         publicationsList.innerHTML = '';
-        siteContent.publications.forEach(pub => {
+        const publicationItems = Array.isArray(siteContent.publications) ? siteContent.publications : [];
+        const limit = document.body.dataset.publicationsView === 'full' ? Infinity : PUBLICATIONS_PREVIEW_LIMIT;
+        const sectionContent = publicationsList.closest('.section-content');
+        removeElementById('publicationsMoreLink');
+
+        publicationItems.slice(0, limit).forEach(pub => {
             const div = document.createElement('div');
             div.className = 'publication-item';
-            
+
             // 图片容器
             const imageContainer = document.createElement('div');
             imageContainer.className = 'publication-image-container';
             const imageLink = document.createElement('a');
             imageLink.href = pub.imageLink || '#';
             imageLink.className = 'publication-image-link';
-            
+
             const img = document.createElement('img');
             img.src = pub.image || '';
             img.alt = '论文图片';
@@ -362,55 +407,62 @@ function loadContent() {
                 const placeholder = this.nextElementSibling;
                 if (placeholder) placeholder.style.display = 'flex';
             };
-            
+
             const placeholder = document.createElement('div');
             placeholder.className = 'publication-image-placeholder';
             placeholder.style.display = 'none';
             placeholder.innerHTML = '<i class="fas fa-image"></i>';
-            
+
             imageLink.appendChild(img);
             imageLink.appendChild(placeholder);
             imageContainer.appendChild(imageLink);
-            
+
             // 内容容器
             const contentDiv = document.createElement('div');
             contentDiv.className = 'publication-content';
-            
+
             const titleDiv = document.createElement('div');
             titleDiv.className = 'publication-title';
             titleDiv.textContent = pub.title[lang];
             titleDiv.setAttribute('data-zh', pub.title.zh);
             titleDiv.setAttribute('data-en', pub.title.en);
-            
+
             const authorsDiv = document.createElement('div');
             authorsDiv.className = 'publication-authors';
             authorsDiv.innerHTML = pub.authors[lang];
             authorsDiv.setAttribute('data-zh', pub.authors.zh);
             authorsDiv.setAttribute('data-en', pub.authors.en);
-            
+
             const venueDiv = document.createElement('div');
             venueDiv.className = 'publication-venue';
             venueDiv.textContent = pub.venue[lang];
             venueDiv.setAttribute('data-zh', pub.venue.zh);
             venueDiv.setAttribute('data-en', pub.venue.en);
-            
+
             const linksDiv = document.createElement('div');
             linksDiv.className = 'publication-links';
             linksDiv.innerHTML = `
                 <a href="${pub.links.pdf}" class="pub-link"><i class="fas fa-file-pdf"></i> <span data-zh="PDF" data-en="PDF">PDF</span></a>
                 <a href="${pub.links.link}" class="pub-link"><i class="fas fa-link"></i> <span data-zh="Link" data-en="Link">Link</span></a>
             `;
-            
+
             contentDiv.appendChild(titleDiv);
             contentDiv.appendChild(authorsDiv);
             contentDiv.appendChild(venueDiv);
             contentDiv.appendChild(linksDiv);
-            
+
             div.appendChild(imageContainer);
             div.appendChild(contentDiv);
             publicationsList.appendChild(div);
         });
         injectEasterEggPublication(lang);
+
+        if (sectionContent && publicationItems.length > limit) {
+            renderMoreLink(sectionContent, 'publicationsMoreLink', 'publications.html', lang, {
+                zh: '更多',
+                en: 'More'
+            });
+        }
     }
 
     // 加载获奖情况
