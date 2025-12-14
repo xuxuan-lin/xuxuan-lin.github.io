@@ -18,11 +18,15 @@ const setLoadingState = (isLoading) => {
 function placeNewsLinksOnNewLine(contentElement) {
     if (!contentElement) return;
 
+    // Remove previously inserted breaks to avoid duplicates when switching languages
+    contentElement.querySelectorAll('.news-link-break').forEach(br => br.remove());
+
     const links = contentElement.querySelectorAll('.news-link');
-    links.forEach(link => {
-        const br = document.createElement('br');
-        contentElement.insertBefore(br, link);
-    });
+    if (links.length === 0) return;
+
+    const br = document.createElement('br');
+    br.classList.add('news-link-break');
+    contentElement.insertBefore(br, links[0]);
 }
 
 // 设置当前年份
