@@ -107,27 +107,6 @@ const siteContent = {
                 en: "🎉 My first academic paper has been officially accepted by <strong>IEEE AP-S 2025</strong>!"
             }
         },
-        {
-            date: "2025-03-06",
-            content: {
-                zh: "🎉 我的第一篇学术论文被 IEEE AP-S 2025 正式接收！",
-                en: "🎉 My first academic paper has been officially accepted by <strong>IEEE AP-S 2025</strong>!"
-            }
-        },
-        {
-            date: "2025-03-06",
-            content: {
-                zh: "🎉 我的第一篇学术论文被 IEEE AP-S 2025 正式接收！",
-                en: "🎉 My first academic paper has been officially accepted by <strong>IEEE AP-S 2025</strong>!"
-            }
-        },
-        {
-            date: "2025-03-06",
-            content: {
-                zh: "🎉 我的第一篇学术论文被 IEEE AP-S 2025 正式接收！",
-                en: "🎉 My first academic paper has been officially accepted by <strong>IEEE AP-S 2025</strong>!"
-            }
-        },
 
     ],
 
