@@ -41,8 +41,11 @@ function switchLanguage(lang) {
     const elements = document.querySelectorAll('[data-zh][data-en]');
     elements.forEach(element => {
         if (element.id === 'easterEggToggle') return;
-        // 跳过section-title（已经处理过了）和它的子元素
-        if (element.classList.contains('section-title') || element.closest('.section-title')) {
+        // 跳过section-title（已经处理过了）和它的子元素，"更多"链接除外
+        if (
+            element.classList.contains('section-title') ||
+            (element.closest('.section-title') && !element.classList.contains('more-link'))
+        ) {
             return;
         }
         
