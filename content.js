@@ -87,6 +87,14 @@ const siteContent = {
             }
         },
         {
+            date: "2025-09-12",
+            content: {
+                zh: "🎓 我获得国家自然科学基金青年学生基础研究项目（本科生）资助！",
+                en: "🎓 I received funding from the <strong>National Natural Science Foundation of China</strong> under the <strong>Young Students Basic Research Program (Undergraduate)</strong>!"
+            }
+        },
+
+        {
             date: "2025-05-28",
             content: {
                 zh: "🏆 我负责的项目进一步荣获首都“挑战杯”主体赛<strong>特等奖</strong>！ <a class=\"news-link\" href=\"https://www.tsinghua.edu.cn/info/1660/119339.htm\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>清华新闻</span></a>",
