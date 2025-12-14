@@ -343,7 +343,7 @@ function loadContent() {
 
     // 加载新闻
     const newsSection = document.getElementById('news');
-    const newsTitle = newsSection?.querySelector('.section-title');
+    const newsSectionTitle = newsSection?.querySelector('.section-title');
     const newsList = document.getElementById('newsList');
     if (newsList && siteContent.news) {
         newsList.innerHTML = '';
@@ -367,8 +367,8 @@ function loadContent() {
             newsList.appendChild(li);
         });
 
-        if (newsTitle && newsItems.length > limit) {
-            renderMoreLink(newsTitle, 'newsMoreLink', 'news.html', lang, {
+        if (newsSectionTitle && newsItems.length > limit) {
+            renderMoreLink(newsSectionTitle, 'newsMoreLink', 'news.html', lang, {
                 zh: '更多',
                 en: 'More'
             });
@@ -377,7 +377,7 @@ function loadContent() {
 
     // 加载论文
     const publicationsSection = document.getElementById('publications');
-    const publicationsTitle = publicationsSection?.querySelector('.section-title');
+    const publicationsSectionTitle = publicationsSection?.querySelector('.section-title');
     const publicationsList = document.getElementById('publicationsList');
     if (publicationsList && siteContent.publications) {
         publicationsList.innerHTML = '';
@@ -455,8 +455,8 @@ function loadContent() {
         });
         injectEasterEggPublication(lang);
 
-        if (publicationsTitle && publicationItems.length > limit) {
-            renderMoreLink(publicationsTitle, 'publicationsMoreLink', 'publications.html', lang, {
+        if (publicationsSectionTitle && publicationItems.length > limit) {
+            renderMoreLink(publicationsSectionTitle, 'publicationsMoreLink', 'publications.html', lang, {
                 zh: '更多',
                 en: 'More'
             });
