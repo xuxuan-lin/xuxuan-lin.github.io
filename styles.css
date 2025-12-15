@@ -584,8 +584,8 @@ body {
 
 .award-item {
     display: flex;
-    align-items: center;
-    gap: 10px;
+    align-items: flex-start;
+    gap: 12px;
     padding: 10px 12px;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
@@ -599,24 +599,18 @@ body {
     transform: translateY(-1px);
 }
 
-.award-item i {
-    color: #f39c12;
-    font-size: 1em;
-}
-
 .award-date {
-    background: rgba(243, 156, 18, 0.12);
-    color: #d67c00;
-    padding: 4px 8px;
-    border-radius: 4px;
+    color: var(--secondary-color);
     font-weight: 600;
     font-size: 0.9em;
     white-space: nowrap;
+    min-width: 90px;
+    line-height: 1.6;
 }
 
 .award-info {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 8px;
     flex-wrap: wrap;
     flex: 1;
@@ -626,6 +620,7 @@ body {
     font-size: 1em;
     font-weight: 600;
     color: var(--primary-color);
+    line-height: 1.6;
 }
 
 .award-note {
@@ -734,6 +729,15 @@ body {
     }
 
     .news-date {
+        min-width: auto;
+    }
+
+    .award-item {
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .award-date {
         min-width: auto;
     }
 

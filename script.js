@@ -513,10 +513,6 @@ function loadContent() {
             const li = document.createElement('li');
             li.className = 'award-item';
 
-            const icon = document.createElement('i');
-            icon.className = 'fas fa-medal';
-            li.appendChild(icon);
-
             const dateSpan = document.createElement('span');
             dateSpan.className = 'award-date';
             dateSpan.textContent = award.date[lang];
