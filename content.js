@@ -204,7 +204,7 @@ const siteContent = {
             },
             date: {
                 zh: "2024.12",
-                en: "2024.12",
+                en: "Dec. 2024",
             },
         },
         {
@@ -214,7 +214,7 @@ const siteContent = {
             },
             date: {
                 zh: "2023.12",
-                en: "2023.12",
+                en: "Dec. 2023",
             },
         },
         {
@@ -224,7 +224,7 @@ const siteContent = {
             },
             date: {
                 zh: "2025.04",
-                en: "2025.04",
+                en: "Apr. 2025",
             },
             note: {
                 zh: "信息技术赛道唯一",
@@ -238,7 +238,7 @@ const siteContent = {
             },
             date: {
                 zh: "2025.05",
-                en: "2025.05",
+                en: "May 2025",
             },
         },
         {
@@ -248,21 +248,21 @@ const siteContent = {
             },
             date: {
                 zh: "2025.11",
-                en: "2025.11",
+                en: "Nov. 2025",
             },
         },
         {
             name: {
-                zh: "清华大学特等奖学金（本科生）",
-                en: "Tsinghua University Special Scholarship (Undergraduate)",
+                zh: "2025 年清华大学特等奖学金（本科生）",
+                en: "2025 Tsinghua University Special Scholarship (Undergraduate)",
             },
             date: {
                 zh: "2025.11",
-                en: "2025.11",
+                en: "Nov. 2025",
             },
             note: {
-                zh: "每年评选 10 个",
-                en: "Awarded to 10 undergraduates annually",
+                zh: "<strong>清华大学本科生最高荣誉</strong>",
+                en: "<strong>Highest honor for Tsinghua undergraduates</strong> (10 awardees from over 16,000 undergraduate students each year)",
             },
         },
     ],
