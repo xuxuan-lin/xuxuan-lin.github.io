@@ -199,16 +199,6 @@ const siteContent = {
     awards: [
         {
             name: {
-                zh: "全国“挑战杯”主赛道<strong>特等奖</strong>",
-                en: "National Challenge Cup (Main Track) <strong>Grand Prize</strong>",
-            },
-            date: {
-                zh: "2025.11",
-                en: "Nov. 2025",
-            },
-        },
-        {
-            name: {
                 zh: "清华大学<strong>特等奖学金</strong>（本科生）",
                 en: "Tsinghua University <strong>Special Scholarship</strong> (Undergraduate)",
             },
@@ -217,14 +207,25 @@ const siteContent = {
                 en: "Nov. 2025",
             },
             note: {
-                zh: "清华本科生年度最高荣誉（全校<strong>仅 10 名</strong>）",
-                en: "Highest yearly honor for Tsinghua undergraduates (<strong>10 awardees</strong> across 16,000+ students)",
+                zh: "清华大学本科生最高荣誉（每年全校<strong>仅 10 名</strong>）",
+                en: "Highest honor for Tsinghua undergraduates (<strong>10 awardees</strong> across 16,000+ students each year)",
             },
         },
         {
             name: {
-                zh: "2025 年“挑战杯”首都大学生课外学术科技作品竞赛主赛道<strong>特等奖</strong>",
-                en: "2025 Beijing Challenge Cup (Main Track) <strong>Grand Prize</strong>",
+                zh: "第十九届全国“挑战杯”主体赛<strong>特等奖</strong>",
+                en: "19th National \"Challenge Cup\" Technological Innovation Competition (Main Competition) <strong>Grand Prize</strong>",
+            },
+            date: {
+                zh: "2025.11",
+                en: "Nov. 2025",
+            },
+            
+        },
+        {
+            name: {
+                zh: "2025 年“挑战杯”首都大学生课外学术科技作品竞赛主体赛<strong>特等奖</strong>",
+                en: "2025 Capital \"Challenge Cup\" Technological Innovation Competition (Main Track) <strong>Grand Prize</strong>",
             },
             date: {
                 zh: "2025.05",
@@ -234,21 +235,21 @@ const siteContent = {
         {
             name: {
                 zh: "第 43 届清华大学“挑战杯”学生课外学术科技作品竞赛<strong>特等奖</strong>",
-                en: "Grand Prize, 43rd Tsinghua Challenge Cup for Extracurricular Academic & Sci-Tech Works",
+                en: "43rd Tsinghua \"Challenge Cup\" Technological Innovation Competition <strong>Grand Prize</strong>",
             },
             date: {
                 zh: "2025.04",
                 en: "Apr. 2025",
             },
             note: {
-                zh: "信息技术赛道唯一获奖团队",
-                en: "Only awardee in the Information Technology track",
+                zh: "信息技术赛道唯一特等奖",
+                en: "The only Grand Prize in the field of information technology",
             },
         },
         {
             name: {
                 zh: "清华大学学业优秀奖学金（清华之友—丰田奖学金）",
-                en: "Tsinghua Academic Excellence Scholarship (Friends of Tsinghua – Toyota)",
+                en: "Tsinghua Academic Excellence Scholarship (Toyota Scholarship)",
             },
             date: {
                 zh: "2024.12",
@@ -258,7 +259,7 @@ const siteContent = {
         {
             name: {
                 zh: "清华大学学业优秀奖学金（清华之友—三星奖学金）",
-                en: "Tsinghua Academic Excellence Scholarship (Friends of Tsinghua – Samsung)",
+                en: "Tsinghua Academic Excellence Scholarship (Samsung Scholarship)",
             },
             date: {
                 zh: "2023.12",
