@@ -37,9 +37,10 @@ function placeAwardTagsOnNewLine(infoElement) {
     const firstTag = infoElement.querySelector('.award-note');
     if (!firstTag) return;
 
-    const br = document.createElement('br');
-    br.classList.add('award-tag-break');
-    infoElement.insertBefore(br, firstTag);
+    const breakEl = document.createElement('span');
+    breakEl.classList.add('award-tag-break');
+    breakEl.setAttribute('aria-hidden', 'true');
+    infoElement.insertBefore(breakEl, firstTag);
 }
 
 // 设置当前年份
