@@ -225,7 +225,7 @@ const siteContent = {
         {
             name: {
                 zh: "2025 年“挑战杯”首都大学生课外学术科技作品竞赛主体赛<strong>特等奖</strong>",
-                en: "2025 Capital \"Challenge Cup\" Technological Innovation Competition (Main Track) <strong>Grand Prize</strong>",
+                en: "2025 Capital \"Challenge Cup\" Technological Innovation Competition (Main Competition) <strong>Grand Prize</strong>",
             },
             date: {
                 zh: "2025.05",
