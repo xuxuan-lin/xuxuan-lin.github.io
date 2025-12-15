@@ -70,7 +70,9 @@ function switchLanguage(lang) {
             element.id === 'researchText' ||
             element.classList.contains('research-content') ||
             element.classList.contains('publication-authors') ||
-            element.classList.contains('news-content')
+            element.classList.contains('news-content') ||
+            element.classList.contains('award-name') ||
+            element.classList.contains('award-note')
         ) {
             // 这些区域支持HTML内容（例如包含链接、加粗等）
             element.innerHTML = content;
@@ -523,7 +525,7 @@ function loadContent() {
 
             const nameSpan = document.createElement('span');
             nameSpan.className = 'award-name';
-            nameSpan.textContent = award.name[lang];
+            nameSpan.innerHTML = award.name[lang];
             nameSpan.setAttribute('data-zh', award.name.zh);
             nameSpan.setAttribute('data-en', award.name.en);
 
@@ -534,7 +536,7 @@ function loadContent() {
             if (award.note) {
                 const noteSpan = document.createElement('span');
                 noteSpan.className = 'award-note';
-                noteSpan.textContent = award.note[lang];
+                noteSpan.innerHTML = award.note[lang];
                 noteSpan.setAttribute('data-zh', award.note.zh);
                 noteSpan.setAttribute('data-en', award.note.en);
                 infoDiv.appendChild(noteSpan);
