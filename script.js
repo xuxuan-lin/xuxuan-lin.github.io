@@ -29,6 +29,20 @@ function placeNewsLinksOnNewLine(contentElement) {
     contentElement.insertBefore(br, links[0]);
 }
 
+function placeAwardTagsOnNewLine(infoElement) {
+    if (!infoElement) return;
+
+    infoElement.querySelectorAll('.award-tag-break').forEach(br => br.remove());
+
+    const firstTag = infoElement.querySelector('.award-note');
+    if (!firstTag) return;
+
+    const breakEl = document.createElement('span');
+    breakEl.classList.add('award-tag-break');
+    breakEl.setAttribute('aria-hidden', 'true');
+    infoElement.insertBefore(breakEl, firstTag);
+}
+
 // 设置当前年份
 document.getElementById('currentYear').textContent = new Date().getFullYear();
 
@@ -83,6 +97,8 @@ function switchLanguage(lang) {
             element.textContent = content;
         }
     });
+
+    document.querySelectorAll('.award-info').forEach(placeAwardTagsOnNewLine);
 
     // 更新社交媒体链接的title属性
     const socialLinks = document.querySelectorAll('[data-title-zh][data-title-en]');
@@ -538,6 +554,8 @@ function loadContent() {
                 infoDiv.appendChild(noteSpan);
             }
 
+            placeAwardTagsOnNewLine(infoDiv);
+
             li.appendChild(dateSpan);
             li.appendChild(infoDiv);
             awardsList.appendChild(li);
@@ -917,6 +935,8 @@ function loadExampleData() {
             noteSpan.setAttribute('data-en', award.note.en);
             infoDiv.appendChild(noteSpan);
         }
+
+        placeAwardTagsOnNewLine(infoDiv);
 
         li.appendChild(dateSpan);
         li.appendChild(infoDiv);

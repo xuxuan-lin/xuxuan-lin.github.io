@@ -631,6 +631,12 @@ body {
     border-radius: 12px;
 }
 
+.award-tag-break {
+    flex-basis: 100%;
+    height: 0;
+    display: block;
+}
+
 /* 社会任职样式 */
 .services-list {
     list-style: none;
