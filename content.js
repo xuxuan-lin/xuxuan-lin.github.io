@@ -197,27 +197,74 @@ const siteContent = {
 
     // 获奖情况
     awards: [
-        /* {
-             title: {
-                 zh: "奖项名称",
-                 en: "Award Name"
-             },
-             date: {
-                 zh: "年份",
-                 en: "Year"
-             }
-         }*/
-        // 添加更多奖项：
-        // {
-        //     title: {
-        //         zh: "奖项名称",
-        //         en: "Award Name"
-        //     },
-        //     date: {
-        //         zh: "年份",
-        //         en: "Year"
-        //     }
-        // }
+        {
+            name: {
+                zh: "清华大学学业优秀奖学金 / 清华之友—丰田奖学金",
+                en: "Tsinghua Academic Excellence Scholarship / Friends of Tsinghua – Toyota Scholarship",
+            },
+            date: {
+                zh: "2024.12",
+                en: "2024.12",
+            },
+        },
+        {
+            name: {
+                zh: "清华大学学业优秀奖学金 / 清华之友—三星奖学金",
+                en: "Tsinghua Academic Excellence Scholarship / Friends of Tsinghua – Samsung Scholarship",
+            },
+            date: {
+                zh: "2023.12",
+                en: "2023.12",
+            },
+        },
+        {
+            name: {
+                zh: "第43届清华大学“挑战杯”学生课外学术科技作品竞赛特等奖",
+                en: "Grand Prize, 43rd Tsinghua Challenge Cup for Extracurricular Academic & Sci-Tech Works",
+            },
+            date: {
+                zh: "2025.04",
+                en: "2025.04",
+            },
+            note: {
+                zh: "信息技术赛道唯一",
+                en: "Only awardee in the Information Technology track",
+            },
+        },
+        {
+            name: {
+                zh: "2025年“挑战杯”首都大学生课外学术科技作品竞赛主赛道特等奖",
+                en: "Grand Prize (Main Track), 2025 Beijing Challenge Cup for College Students",
+            },
+            date: {
+                zh: "2025.05",
+                en: "2025.05",
+            },
+        },
+        {
+            name: {
+                zh: "全国挑战杯主赛道特等奖",
+                en: "National Challenge Cup Main Track Grand Prize",
+            },
+            date: {
+                zh: "2025.11",
+                en: "2025.11",
+            },
+        },
+        {
+            name: {
+                zh: "清华大学特等奖学金（本科生）",
+                en: "Tsinghua University Special Scholarship (Undergraduate)",
+            },
+            date: {
+                zh: "2025.11",
+                en: "2025.11",
+            },
+            note: {
+                zh: "每年评选 10 个",
+                en: "Awarded to 10 undergraduates annually",
+            },
+        },
     ],
 
     // 社会任职

@@ -511,25 +511,37 @@ function loadContent() {
             const li = document.createElement('li');
             li.className = 'award-item';
 
-            const titleDiv = document.createElement('div');
-            titleDiv.className = 'award-title';
-            titleDiv.textContent = award.title[lang];
-            titleDiv.setAttribute('data-zh', award.title.zh);
-            titleDiv.setAttribute('data-en', award.title.en);
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-medal';
+            li.appendChild(icon);
 
-            const dateDiv = document.createElement('div');
-            dateDiv.className = 'award-date';
-            dateDiv.textContent = award.date[lang];
-            dateDiv.setAttribute('data-zh', award.date.zh);
-            dateDiv.setAttribute('data-en', award.date.en);
+            const dateSpan = document.createElement('span');
+            dateSpan.className = 'award-date';
+            dateSpan.textContent = award.date[lang];
+            dateSpan.setAttribute('data-zh', award.date.zh);
+            dateSpan.setAttribute('data-en', award.date.en);
 
-            const contentDiv = document.createElement('div');
-            contentDiv.className = 'award-content';
-            contentDiv.appendChild(titleDiv);
-            contentDiv.appendChild(dateDiv);
+            const nameSpan = document.createElement('span');
+            nameSpan.className = 'award-name';
+            nameSpan.textContent = award.name[lang];
+            nameSpan.setAttribute('data-zh', award.name.zh);
+            nameSpan.setAttribute('data-en', award.name.en);
 
-            li.innerHTML = '<i class="fas fa-medal"></i>';
-            li.appendChild(contentDiv);
+            const infoDiv = document.createElement('div');
+            infoDiv.className = 'award-info';
+            infoDiv.appendChild(nameSpan);
+
+            if (award.note) {
+                const noteSpan = document.createElement('span');
+                noteSpan.className = 'award-note';
+                noteSpan.textContent = award.note[lang];
+                noteSpan.setAttribute('data-zh', award.note.zh);
+                noteSpan.setAttribute('data-en', award.note.en);
+                infoDiv.appendChild(noteSpan);
+            }
+
+            li.appendChild(dateSpan);
+            li.appendChild(infoDiv);
             awardsList.appendChild(li);
         });
     }
@@ -714,13 +726,17 @@ const exampleData = {
     ],
     awards: [
         {
-            title: {
+            name: {
                 zh: "奖项名称",
                 en: "Award Name"
             },
             date: {
                 zh: "年份",
                 en: "Year"
+            },
+            note: {
+                zh: "可选说明",
+                en: "Optional note"
             }
         }
     ],
@@ -875,25 +891,37 @@ function loadExampleData() {
         const li = document.createElement('li');
         li.className = 'award-item';
 
-        const titleDiv = document.createElement('div');
-        titleDiv.className = 'award-title';
-        titleDiv.textContent = award.title[lang];
-        titleDiv.setAttribute('data-zh', award.title.zh);
-        titleDiv.setAttribute('data-en', award.title.en);
+        const icon = document.createElement('i');
+        icon.className = 'fas fa-medal';
+        li.appendChild(icon);
 
-        const dateDiv = document.createElement('div');
-        dateDiv.className = 'award-date';
-        dateDiv.textContent = award.date[lang];
-        dateDiv.setAttribute('data-zh', award.date.zh);
-        dateDiv.setAttribute('data-en', award.date.en);
+        const dateSpan = document.createElement('span');
+        dateSpan.className = 'award-date';
+        dateSpan.textContent = award.date[lang];
+        dateSpan.setAttribute('data-zh', award.date.zh);
+        dateSpan.setAttribute('data-en', award.date.en);
 
-        const contentDiv = document.createElement('div');
-        contentDiv.className = 'award-content';
-        contentDiv.appendChild(titleDiv);
-        contentDiv.appendChild(dateDiv);
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'award-name';
+        nameSpan.textContent = award.name[lang];
+        nameSpan.setAttribute('data-zh', award.name.zh);
+        nameSpan.setAttribute('data-en', award.name.en);
 
-        li.innerHTML = '<i class="fas fa-medal"></i>';
-        li.appendChild(contentDiv);
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'award-info';
+        infoDiv.appendChild(nameSpan);
+
+        if (award.note) {
+            const noteSpan = document.createElement('span');
+            noteSpan.className = 'award-note';
+            noteSpan.textContent = award.note[lang];
+            noteSpan.setAttribute('data-zh', award.note.zh);
+            noteSpan.setAttribute('data-en', award.note.en);
+            infoDiv.appendChild(noteSpan);
+        }
+
+        li.appendChild(dateSpan);
+        li.appendChild(infoDiv);
         awardsList.appendChild(li);
     });
 
