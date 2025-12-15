@@ -213,7 +213,7 @@ const siteContent = {
         },
         {
             name: {
-                zh: "第十九届全国“挑战杯”主体赛<strong>特等奖</strong>",
+                zh: "第十九届“挑战杯”全国大学生课外学术科技作品竞赛主体赛<strong>特等奖</strong>",
                 en: "19th National \"Challenge Cup\" Technological Innovation Competition (Main Competition) <strong>Grand Prize</strong>",
             },
             date: {
