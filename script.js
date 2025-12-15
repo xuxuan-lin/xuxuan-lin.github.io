@@ -36,11 +36,11 @@ document.getElementById('currentYear').textContent = new Date().getFullYear();
 function switchLanguage(lang) {
     currentLanguage = lang;
     localStorage.setItem('language', lang);
-    
+
     // 更新按钮状态
     document.getElementById('langZh').classList.toggle('active', lang === 'zh');
     document.getElementById('langEn').classList.toggle('active', lang === 'en');
-    
+
     // 先更新section-title中的span元素（特殊处理）
     const sectionTitles = document.querySelectorAll('.section-title[data-zh][data-en]');
     sectionTitles.forEach(title => {
@@ -50,7 +50,7 @@ function switchLanguage(lang) {
             span.textContent = text;
         }
     });
-    
+
     // 更新所有带有data-zh和data-en属性的元素
     const elements = document.querySelectorAll('[data-zh][data-en]');
     elements.forEach(element => {
@@ -62,7 +62,7 @@ function switchLanguage(lang) {
         ) {
             return;
         }
-        
+
         const content = lang === 'zh' ? element.getAttribute('data-zh') : element.getAttribute('data-en');
         if (element.tagName === 'TITLE') {
             document.title = content;
@@ -81,7 +81,7 @@ function switchLanguage(lang) {
             element.textContent = content;
         }
     });
-    
+
     // 更新社交媒体链接的title属性
     const socialLinks = document.querySelectorAll('[data-title-zh][data-title-en]');
     socialLinks.forEach(link => {
@@ -130,7 +130,8 @@ function injectEasterEggPublication(lang) {
             en: 'South Asian Review, Vol. 4, The Commercial Press, 2024'
         },
         links: {
-            link: 'https://kns.cnki.net/kcms2/article/abstract?v=z8lpvlhA63EVVCfLSJTps-ZH4sbNUTeIlXovdFZslCvGzFsYqPyHfBa9GO5jMMA-8gctkApmfJWLa1-1Bmtp6jBY7_4UYPfmakwaIziUEaDrG9qTiEco9D_XXXWY0Gt8fXc4QqQZ7jufBIJ6KE98vEsz11AZYHIcElo8LgrKOp_3--EkBTlxPg==&uniplatform=NZKPT&language=CHS'
+            pdf: 'files/PDF/基于谷歌街景的印度语言景观调查研究_苏婧.pdf',
+            link: 'https://kns.cnki.net/kcms2/article/abstract?v=8XsFQqBkIewHUqKLyKWqAga_t5D5k_XUrhE7Vd02dx5T_5WiTxOXEo32z3cqlI2mZ1osMGvY7u6eB7BCUKT1BHQ0AtYMS4oN8k2bsLsCHdIgGiXLF0wyLzZt7c0Q86TtanCanp7ecTPOcbBIrtVDXhW8S4HqItKQ37pk4Mv0hu-c5CdGnJm5bjHA60kUSFUB'
         }
     };
 
@@ -187,6 +188,7 @@ function injectEasterEggPublication(lang) {
         const venueZh = eggData.venue?.zh ?? defaultEgg.venue.zh;
         const venueEn = eggData.venue?.en ?? defaultEgg.venue.en;
         const link = eggData.links?.link ?? defaultEgg.links.link;
+        const pdf = eggData.links?.pdf ?? defaultEgg.links.pdf;
 
         eggItem.innerHTML = `
             <div class="publication-content">
@@ -194,6 +196,10 @@ function injectEasterEggPublication(lang) {
                 <div class="publication-authors" data-zh="${authorsZh}" data-en="${authorsEn}">${lang === 'zh' ? authorsZh : authorsEn}</div>
                 <div class="publication-venue" data-zh="${venueZh}" data-en="${venueEn}">${lang === 'zh' ? venueZh : venueEn}</div>
                 <div class="publication-links">
+                    <a href="${pdf}" class="pub-link" target="_blank" rel="noopener">
+                        <i class="fas fa-file-pdf"></i> 
+                        <span data-zh="PDF" data-en="PDF">PDF</span>
+                    </a>
                     <a href="${link}" class="pub-link" target="_blank" rel="noopener">
                         <i class="fas fa-link"></i>
                         <span data-zh="Link" data-en="Link">Link</span>
@@ -421,7 +427,7 @@ function loadContent() {
             img.src = pub.image || '';
             img.alt = '论文图片';
             img.className = 'publication-image';
-            img.onerror = function() {
+            img.onerror = function () {
                 this.style.display = 'none';
                 const placeholder = this.nextElementSibling;
                 if (placeholder) placeholder.style.display = 'flex';
@@ -504,24 +510,24 @@ function loadContent() {
         siteContent.awards.forEach(award => {
             const li = document.createElement('li');
             li.className = 'award-item';
-            
+
             const titleDiv = document.createElement('div');
             titleDiv.className = 'award-title';
             titleDiv.textContent = award.title[lang];
             titleDiv.setAttribute('data-zh', award.title.zh);
             titleDiv.setAttribute('data-en', award.title.en);
-            
+
             const dateDiv = document.createElement('div');
             dateDiv.className = 'award-date';
             dateDiv.textContent = award.date[lang];
             dateDiv.setAttribute('data-zh', award.date.zh);
             dateDiv.setAttribute('data-en', award.date.en);
-            
+
             const contentDiv = document.createElement('div');
             contentDiv.className = 'award-content';
             contentDiv.appendChild(titleDiv);
             contentDiv.appendChild(dateDiv);
-            
+
             li.innerHTML = '<i class="fas fa-medal"></i>';
             li.appendChild(contentDiv);
             awardsList.appendChild(li);
@@ -535,31 +541,31 @@ function loadContent() {
         siteContent.services.forEach(service => {
             const li = document.createElement('li');
             li.className = 'service-item';
-            
+
             const titleDiv = document.createElement('div');
             titleDiv.className = 'service-title';
             titleDiv.textContent = service.title[lang];
             titleDiv.setAttribute('data-zh', service.title.zh);
             titleDiv.setAttribute('data-en', service.title.en);
-            
+
             const orgDiv = document.createElement('div');
             orgDiv.className = 'service-org';
             orgDiv.textContent = service.org[lang];
             orgDiv.setAttribute('data-zh', service.org.zh);
             orgDiv.setAttribute('data-en', service.org.en);
-            
+
             const periodDiv = document.createElement('div');
             periodDiv.className = 'service-period';
             periodDiv.textContent = service.period[lang];
             periodDiv.setAttribute('data-zh', service.period.zh);
             periodDiv.setAttribute('data-en', service.period.en);
-            
+
             const contentDiv = document.createElement('div');
             contentDiv.className = 'service-content';
             contentDiv.appendChild(titleDiv);
             contentDiv.appendChild(orgDiv);
             contentDiv.appendChild(periodDiv);
-            
+
             li.innerHTML = '<i class="fas fa-briefcase"></i>';
             li.appendChild(contentDiv);
             servicesList.appendChild(li);
@@ -576,7 +582,7 @@ function loadContent() {
 }
 
 // 页面加载时应用保存的语言设置并加载内容
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     setLoadingState(true);
 
     try {
@@ -593,12 +599,12 @@ document.addEventListener('DOMContentLoaded', function() {
 const profilePhoto = document.getElementById('profilePhoto');
 const photoPlaceholder = document.getElementById('photoPlaceholder');
 
-profilePhoto.onload = function() {
+profilePhoto.onload = function () {
     profilePhoto.classList.add('show');
     photoPlaceholder.classList.add('hidden');
 };
 
-profilePhoto.onerror = function() {
+profilePhoto.onerror = function () {
     profilePhoto.classList.remove('show');
     photoPlaceholder.classList.remove('hidden');
 };
@@ -661,22 +667,22 @@ const exampleData = {
         en: "Fill in your research directions, research interests, and main research content here. You can include your research areas, methodologies, and specific questions you are interested in."
     },
     news: [
-        { 
-            date: "2024-01-15", 
+        {
+            date: "2024-01-15",
             content: {
                 zh: "论文被XX会议接收",
                 en: "Paper accepted by XX Conference"
             }
         },
-        { 
-            date: "2024-01-10", 
+        {
+            date: "2024-01-10",
             content: {
                 zh: "参加XX学术会议并做报告",
                 en: "Attended XX academic conference and gave a presentation"
             }
         },
-        { 
-            date: "2023-12-20", 
+        {
+            date: "2023-12-20",
             content: {
                 zh: "获得XX奖学金",
                 en: "Received XX Scholarship"
@@ -707,11 +713,11 @@ const exampleData = {
         }
     ],
     awards: [
-        { 
+        {
             title: {
                 zh: "奖项名称",
                 en: "Award Name"
-            }, 
+            },
             date: {
                 zh: "年份",
                 en: "Year"
@@ -741,36 +747,36 @@ const exampleData = {
 
 function loadExampleData() {
     const lang = currentLanguage;
-    
+
     // 加载基本信息
     const nameEl = document.getElementById('name');
     nameEl.textContent = exampleData.name[lang];
     nameEl.setAttribute('data-zh', exampleData.name.zh);
     nameEl.setAttribute('data-en', exampleData.name.en);
-    
+
     const schoolEl = document.getElementById('school');
     schoolEl.textContent = exampleData.school[lang];
     schoolEl.setAttribute('data-zh', exampleData.school.zh);
     schoolEl.setAttribute('data-en', exampleData.school.en);
-    
+
     const gradeEl = document.getElementById('grade');
     gradeEl.textContent = exampleData.grade[lang];
     gradeEl.setAttribute('data-zh', exampleData.grade.zh);
     gradeEl.setAttribute('data-en', exampleData.grade.en);
-    
+
     const majorEl = document.getElementById('major');
     majorEl.textContent = exampleData.major[lang];
     majorEl.setAttribute('data-zh', exampleData.major.zh);
     majorEl.setAttribute('data-en', exampleData.major.en);
-    
+
     renderSocialLinks(exampleData.socialLinks, lang);
-    
+
     // 加载研究内容（支持HTML）
     const researchEl = document.getElementById('researchText');
     researchEl.innerHTML = exampleData.research[lang];
     researchEl.setAttribute('data-zh', exampleData.research.zh);
     researchEl.setAttribute('data-en', exampleData.research.en);
-    
+
     // 加载新闻
     const newsList = document.getElementById('newsList');
     newsList.innerHTML = '';
@@ -787,62 +793,62 @@ function loadExampleData() {
         li.appendChild(contentSpan);
         newsList.appendChild(li);
     });
-    
+
     // 加载论文
     const publicationsList = document.getElementById('publicationsList');
     publicationsList.innerHTML = '';
     exampleData.publications.forEach(pub => {
         const div = document.createElement('div');
         div.className = 'publication-item';
-        
+
         // 图片容器
         const imageContainer = document.createElement('div');
         imageContainer.className = 'publication-image-container';
         const imageLink = document.createElement('a');
         imageLink.href = pub.imageLink || '#';
         imageLink.className = 'publication-image-link';
-        
+
         const img = document.createElement('img');
         img.src = pub.image || '';
         img.alt = '论文图片';
         img.className = 'publication-image';
-        img.onerror = function() {
+        img.onerror = function () {
             this.style.display = 'none';
             const placeholder = this.nextElementSibling;
             if (placeholder) placeholder.style.display = 'flex';
         };
-        
+
         const placeholder = document.createElement('div');
         placeholder.className = 'publication-image-placeholder';
         placeholder.style.display = 'none';
         placeholder.innerHTML = '<i class="fas fa-image"></i>';
-        
+
         imageLink.appendChild(img);
         imageLink.appendChild(placeholder);
         imageContainer.appendChild(imageLink);
-        
+
         // 内容容器
         const contentDiv = document.createElement('div');
         contentDiv.className = 'publication-content';
-        
+
         const titleDiv = document.createElement('div');
         titleDiv.className = 'publication-title';
         titleDiv.textContent = pub.title[lang];
         titleDiv.setAttribute('data-zh', pub.title.zh);
         titleDiv.setAttribute('data-en', pub.title.en);
-        
+
         const authorsDiv = document.createElement('div');
         authorsDiv.className = 'publication-authors';
         authorsDiv.textContent = pub.authors[lang];
         authorsDiv.setAttribute('data-zh', pub.authors.zh);
         authorsDiv.setAttribute('data-en', pub.authors.en);
-        
+
         const venueDiv = document.createElement('div');
         venueDiv.className = 'publication-venue';
         venueDiv.textContent = pub.venue[lang];
         venueDiv.setAttribute('data-zh', pub.venue.zh);
         venueDiv.setAttribute('data-en', pub.venue.en);
-        
+
         const linksDiv = document.createElement('div');
         linksDiv.className = 'publication-links';
         linksDiv.innerHTML = `
@@ -850,83 +856,83 @@ function loadExampleData() {
             <a href="${pub.links.code}" class="pub-link"><i class="fas fa-code"></i> <span data-zh="Code" data-en="Code">Code</span></a>
             <a href="${pub.links.link}" class="pub-link"><i class="fas fa-link"></i> <span data-zh="Link" data-en="Link">Link</span></a>
         `;
-        
+
         contentDiv.appendChild(titleDiv);
         contentDiv.appendChild(authorsDiv);
         contentDiv.appendChild(venueDiv);
         contentDiv.appendChild(linksDiv);
-        
+
         div.appendChild(imageContainer);
         div.appendChild(contentDiv);
         publicationsList.appendChild(div);
     });
     injectEasterEggPublication(lang);
-    
+
     // 加载获奖情况
     const awardsList = document.getElementById('awardsList');
     awardsList.innerHTML = '';
     exampleData.awards.forEach(award => {
         const li = document.createElement('li');
         li.className = 'award-item';
-        
+
         const titleDiv = document.createElement('div');
         titleDiv.className = 'award-title';
         titleDiv.textContent = award.title[lang];
         titleDiv.setAttribute('data-zh', award.title.zh);
         titleDiv.setAttribute('data-en', award.title.en);
-        
+
         const dateDiv = document.createElement('div');
         dateDiv.className = 'award-date';
         dateDiv.textContent = award.date[lang];
         dateDiv.setAttribute('data-zh', award.date.zh);
         dateDiv.setAttribute('data-en', award.date.en);
-        
+
         const contentDiv = document.createElement('div');
         contentDiv.className = 'award-content';
         contentDiv.appendChild(titleDiv);
         contentDiv.appendChild(dateDiv);
-        
+
         li.innerHTML = '<i class="fas fa-medal"></i>';
         li.appendChild(contentDiv);
         awardsList.appendChild(li);
     });
-    
+
     // 加载社会任职
     const servicesList = document.getElementById('servicesList');
     servicesList.innerHTML = '';
     exampleData.services.forEach(service => {
         const li = document.createElement('li');
         li.className = 'service-item';
-        
+
         const titleDiv = document.createElement('div');
         titleDiv.className = 'service-title';
         titleDiv.textContent = service.title[lang];
         titleDiv.setAttribute('data-zh', service.title.zh);
         titleDiv.setAttribute('data-en', service.title.en);
-        
+
         const orgDiv = document.createElement('div');
         orgDiv.className = 'service-org';
         orgDiv.textContent = service.org[lang];
         orgDiv.setAttribute('data-zh', service.org.zh);
         orgDiv.setAttribute('data-en', service.org.en);
-        
+
         const periodDiv = document.createElement('div');
         periodDiv.className = 'service-period';
         periodDiv.textContent = service.period[lang];
         periodDiv.setAttribute('data-zh', service.period.zh);
         periodDiv.setAttribute('data-en', service.period.en);
-        
+
         const contentDiv = document.createElement('div');
         contentDiv.className = 'service-content';
         contentDiv.appendChild(titleDiv);
         contentDiv.appendChild(orgDiv);
         contentDiv.appendChild(periodDiv);
-        
+
         li.innerHTML = '<i class="fas fa-briefcase"></i>';
         li.appendChild(contentDiv);
         servicesList.appendChild(li);
     });
-    
+
     // 重新应用语言设置以确保所有新添加的元素也使用正确的语言
     switchLanguage(currentLanguage);
 }
