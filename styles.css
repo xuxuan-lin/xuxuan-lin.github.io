@@ -25,6 +25,16 @@ body {
     font-size: 15px;
 }
 
+/* 专用链接样式 */
+.prof-link {
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.prof-link:visited {
+    color: var(--secondary-color);
+}
+
 .loading-overlay {
     position: fixed;
     inset: 0;
