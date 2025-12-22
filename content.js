@@ -94,13 +94,6 @@ const siteContent = {
             }
         },
         {
-            date: "2025-11-03",
-            content: {
-                zh: "🏆 我负责的项目最终夺得第十九届全国“挑战杯”中主体赛<strong>特等奖</strong>，助力清华大学再次捧起象征团体冠军的“挑战杯”！ <a class=\"news-link\" href=\"https://www.tsinghua.edu.cn/info/1176/122277.htm\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>清华新闻</span></a> <a class=\"news-link\" href=\"https://www.ee.tsinghua.edu.cn/info/1076/4927.htm\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>清华电子系新闻</span></a>",
-                en: "🏆 The project ultimately won the <strong>Grand Prize</strong> in the main competition of the 19th National \"Challenge Cup,\" helping Tsinghua University once again lift the <strong>\"Challenge Cup,\"</strong> symbolizing the team championship! <a class=\"news-link\" href=\"https://www.tsinghua.edu.cn/info/1176/122277.htm\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>Tsinghua News</span></a> <a class=\"news-link\" href=\"https://www.ee.tsinghua.edu.cn/info/1076/4927.htm\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>EE News</span></a>"
-            }
-        },
-        {
             date: "2025-09-12",
             content: {
                 zh: "🎓 我获得<strong>国家自然科学基金</strong>青年学生基础研究项目（本科生）资助！",
