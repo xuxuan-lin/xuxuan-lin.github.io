@@ -708,6 +708,17 @@ body {
     font-size: 0.85em;
 }
 
+.page-views {
+    margin-top: 6px;
+    font-size: 0.85em;
+    color: var(--text-light);
+}
+
+.views-separator {
+    margin: 0 6px;
+    color: rgba(0, 0, 0, 0.35);
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .language-switcher {
@@ -812,4 +823,3 @@ body {
         height: auto;
     }
 }
-
