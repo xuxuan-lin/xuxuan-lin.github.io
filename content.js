@@ -82,8 +82,8 @@ const siteContent = {
         {
             date: "2025-12-18",
             content: {
-                zh: "🎓 我获得了清华大学本科生最高荣誉——清华大学<strong>特等奖学金</strong>（本科生）！<a class=\"news-link\" href=\"https://mp.weixin.qq.com/s/1durTCaQVRfheEONTFTVuw\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>清华电子系新闻</span></a>",
-                en: "🎓 I received Tsinghua University’s highest undergraduate honor — the <strong>Tsinghua University Special Scholarship</strong> (Undergraduate)! <a class=\"news-link\" href=\"https://mp.weixin.qq.com/s/1durTCaQVRfheEONTFTVuw\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>EE News</span></a>"
+                zh: "🎓 我获得了清华大学本科生最高荣誉——清华大学<strong>特等奖学金</strong>（本科生）！<a class=\"news-link\" href=\"https://mp.weixin.qq.com/s/SEi8VD_DewmZWjH6vIuuew\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>清华电子系新闻</span></a>",
+                en: "🎓 I received Tsinghua University’s highest undergraduate honor — the <strong>Tsinghua University Special Scholarship</strong> (Undergraduate)! <a class=\"news-link\" href=\"https://mp.weixin.qq.com/s/SEi8VD_DewmZWjH6vIuuew\" target=\"_blank\"><i class=\"fas fa-link\"></i><span>EE News</span></a>"
             }
         },
         {
